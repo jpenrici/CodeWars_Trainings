@@ -81,11 +81,12 @@ std::string PlayPass::playPass(const std::string &s, int n)
 		phrase[i] = char(ascii);
 
 	}
-		// Inverter String
-		aux = phrase;
-		for(int i = 0; i < size; i++){
-			phrase[i] = aux[(size - 1) - i];
-		}
+	
+	// Inverter String
+	aux = phrase;
+	for(int i = 0; i < size; i++){
+		phrase[i] = aux[(size - 1) - i];
+	}
 	
 	return phrase;
 };
@@ -101,13 +102,13 @@ void test(std::string o, int n, std::string e)
 	if (r == e)
 		std::cout << "\tOK!" << std::endl;
 	else
-		std::cout << "\tErro!" << std::endl;
+		std::cout << "\tError!" << std::endl;
 }
 
 // Testes
 int main()
 {
-	    test("I LOVE YOU!!!", 1, "!!!vPz fWpM J");
+	test("I LOVE YOU!!!", 1, "!!!vPz fWpM J");
         test("I LOVE YOU!!!", 0, "!!!uOy eVoL I");
         test("AAABBCCY", 1, "zDdCcBbB");
         test("MY GRANMA CAME FROM NY ON THE 23RD OF APRIL 2015", 2,
