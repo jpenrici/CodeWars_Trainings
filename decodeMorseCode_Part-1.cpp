@@ -102,10 +102,10 @@ char findCode(std::string sequence) {
 	MORSE_CODE["-----"] = '0';
 	
 	for (std::map<std::string, char>::iterator p = MORSE_CODE.begin( );
-      p != MORSE_CODE.end( ); ++p ) {
+	     p != MORSE_CODE.end( ); ++p ) {
 		  if (p->first == sequence)
 			value = p->second;
-   }
+   	}
 	return value;
 }
 
@@ -168,12 +168,12 @@ std::string decodeMorse(std::string morseCode) {
 		
 		// Traduzir sequência
 		if (aux != "")
-			decoded += findCode(aux);		// Teste
+			decoded += findCode(aux);	// Teste
 			//decoded += MORSE_CODE[aux]	// Plataforma
 	}
-
+	
 	std::cout << "\n{" << decoded << "}";
-    return decoded;
+	return decoded;
 }
 
 // Comparação
@@ -184,7 +184,7 @@ void test(std::string code, std::string text)
 	if (decodeMorse(code) == text)
 		std::cout << "\tOK!" << std::endl;
 	else
-		std::cout << "\tErro!" << std::endl;
+		std::cout << "\tError!" << std::endl;
 }
 
 // Testes
