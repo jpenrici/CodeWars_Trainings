@@ -33,16 +33,16 @@ class Kata
 public:
     std::vector<std::string> sortByLength(std::vector<std::string> array)
     {
-		//unsigned int i, j; // retirado pra evitar erro SIGSEGV
-		int i, j;
-		std::string temp;
-		for (i = array.size() - 1; i >= 1; i--)
-			for (j = 0; j < i; j++)
-				if (array[j].length() > array[j + 1].length()){
-					temp = array[j];
-					array[j] = array[j + 1];
-					array[j + 1] = temp;
-				}	
+	//unsigned int i, j; // retirado pra evitar erro SIGSEGV
+	int i, j;
+	std::string temp;
+	for (i = array.size() - 1; i >= 1; i--)
+		for (j = 0; j < i; j++)
+			if (array[j].length() > array[j + 1].length()){
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+			}	
         return array;
     }
 };
@@ -58,7 +58,7 @@ void printVector (std::vector<std::string> v){
 
 // Imprime Teste
 void teste(std::vector<std::string> vTest,
-			std::vector<std::string> vExpected ){
+	std::vector<std::string> vExpected ){
 	
     Kata kata;
     std::vector<std::string> actual = kata.sortByLength(vTest);
@@ -81,7 +81,7 @@ void teste(std::vector<std::string> vTest,
 // Testes
 int main()
 {
-	// Teste inicial de igualdade
+    // Teste inicial de igualdade
     teste({ "Beg", "Life", "I", "To" }, { "Beg", "Life", "I", "To" });
     
     // Testes
