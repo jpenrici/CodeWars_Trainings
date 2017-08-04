@@ -26,44 +26,45 @@ class Solution
     {
     	TreeNode** node;
     	int size = arr.size();
-		if (arr.empty())
-			return NULL;
-		if (size == 1)
-			return new TreeNode(arr[0]);
+	if (arr.empty())
+		return NULL;
+	if (size == 1)
+		return new TreeNode(arr[0]);
 
-		node = new TreeNode*[size];	// "Array" de TreeNode => Árvore
-		// Cria os nós folhas
-		for (int i = size - 1; i > size / 2 - 1; --i)
-			node[i] = new TreeNode(arr[i]);
-		// Cria os nós internos e liga aos nós folha
-		for (int i= size / 2 - 1; i >= 0; --i)
-			node[i] = new TreeNode(arr[i], node[2 * i + 1], node[2 * i + 2]);
-		return node[0];
+	node = new TreeNode*[size]; // "Array" de TreeNode => Árvore
+	// Cria os nós folhas
+	for (int i = size - 1; i > size / 2 - 1; --i)
+		node[i] = new TreeNode(arr[i]);
+	// Cria os nós internos e liga aos nós folha
+	for (int i= size / 2 - 1; i >= 0; --i)
+		node[i] = new TreeNode(arr[i], node[2 * i + 1], node[2 * i + 2]);
+	return node[0];
     }
 
     // Exibe Árvore na notação de parênteses
     static std::string stringTree(TreeNode* tree, std::string &sTree)
-	{
-		// Percurso da esquerda para a direita
-		if (tree != NULL){
-			sTree += "(" + std::to_string(tree->m_value);
-			if (tree->m_left != NULL)
-				stringTree(tree->m_left, sTree);
-			if (tree->m_right != NULL)
-				stringTree(tree->m_right, sTree);
-			sTree += ")";
-		} else
-			return "null";
-		return sTree;
-	}
+    {
+	// Percurso da esquerda para a direita
+	if (tree != NULL){
+		sTree += "(" + std::to_string(tree->m_value);
+	if (tree->m_left != NULL)
+		stringTree(tree->m_left, sTree);
+	if (tree->m_right != NULL)
+		stringTree(tree->m_right, sTree);
+		sTree += ")";
+	} else
+		return "null";
+	return sTree;
+    }
 };
 
 // Testes
-void testequal(TreeNode* treeAns, TreeNode* treeSol) {
+void testequal(TreeNode* treeAns, TreeNode* treeSol) 
+{
 	std::string ans, sol;
 	ans = Solution::stringTree (treeAns, ans);
 	sol = Solution::stringTree (treeSol, sol);
-    std::cout << "ans) " << ans << "\nsol) " << sol << "\nans = sol: ";
+    	std::cout << "ans) " << ans << "\nsol) " << sol << "\nans = sol: ";
 	std::cout << std::boolalpha << (ans == sol) << std::endl;
 }
 
